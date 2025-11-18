@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Circuits - Community Minded Homesteading Tools</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #2c3e25;
+            background: linear-gradient(to bottom, #e8f5e3 0%, #f4f1e8 100%);
+            min-height: 100vh;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(76, 110, 66, 0.85), rgba(76, 110, 66, 0.85)),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%234c6e42" width="1200" height="400"/><path fill="%23567d4a" opacity="0.3" d="M0,128L48,133.3C96,139,192,149,288,170.7C384,192,480,224,576,213.3C672,203,768,149,864,144C960,139,1056,181,1152,197.3L1200,208L1200,400L1152,400C1056,400,960,400,864,400C768,400,672,400,576,400C480,400,384,400,288,400C192,400,96,400,48,400L0,400Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: #f4f1e8;
+            padding: 120px 40px;
+            text-align: center;
+        }
+
+        .hero-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .vision {
+            text-align: center;
+            font-size: 1.3em;
+            color: #4c6e42;
+            margin: 60px 0;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .components {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .component {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(76, 110, 66, 0.1);
+            border-top: 4px solid #7a9d6e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .component:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(76, 110, 66, 0.2);
+        }
+
+        .component-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .components .component:first-child .component-header {
+            justify-content: flex-start;
+            padding-left: 40px;
+        }
+
+        .component-icon {
+            width: 70px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .component-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .component-status {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .component-content {
+            width: 100%;
+        }
+
+        .icon {
+            font-size: 3.5em;
+            display: block;
+            line-height: 1;
+        }
+
+        .icon-svg {
+            width: 60px;
+            height: 60px;
+            display: block;
+        }
+
+        .component h2 {
+            color: #4c6e42;
+            font-size: 1.8em;
+            margin: 0;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .status.active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .status.coming {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .component p {
+            color: #5a6c51;
+            margin-bottom: 15px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.05em;
+        }
+
+        .component ul {
+            list-style: none;
+            padding: 0;
+            color: #5a6c51;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .component li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .component li:before {
+            content: "🌿";
+            position: absolute;
+            left: 0;
+        }
+
+        .diagram-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 80px 0;
+            box-shadow: 0 8px 30px rgba(76, 110, 66, 0.1);
+        }
+
+        .diagram-section h2 {
+            color: #4c6e42;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .diagram-section p {
+            text-align: center;
+            color: #5a6c51;
+            margin-bottom: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .network-diagram {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #5a6c51;
+            font-size: 0.95em;
+        }
+
+        .legend-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+        .legend-sage {
+            background: #7bc96f;
+        }
+
+        .legend-stone {
+            background: #9b8579;
+        }
+
+        .legend-net {
+            width: 30px;
+            height: 3px;
+            border-radius: 0;
+            background: #b8d4a8;
+        }
+
+        .philosophy {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 80px 0;
+            box-shadow: 0 8px 30px rgba(76, 110, 66, 0.1);
+            text-align: center;
+        }
+
+        .philosophy h2 {
+            color: #4c6e42;
+            font-size: 2em;
+            margin-bottom: 30px;
+            font-weight: 400;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .value {
+            padding: 20px;
+        }
+
+        .value-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .value h3 {
+            color: #4c6e42;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .value p {
+            color: #5a6c51;
+            font-size: 0.95em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 40px;
+            color: #7a9d6e;
+            font-style: italic;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-motto {
+            font-size: 1.2em;
+            color: #4c6e42;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .logo {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hero-header {
+                gap: 15px;
+            }
+
+            .container {
+                padding: 40px 20px;
+            }
+
+            .components {
+                grid-template-columns: 1fr;
+            }
+
+            .component {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .component-icon {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-header">
+            <svg class="logo" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+                <!-- Upper shoots/branches -->
+                <g stroke="#f4f1e8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Left shoot - curved and irregular -->
+                    <path d="M 70,70 Q 62,60 52,52 Q 40,45 28,42 Q 20,40 12,42" opacity="0.9"/>
+                    <circle cx="12" cy="42" r="4" fill="#f4f1e8" opacity="0.8"/>
+
+                    <!-- Main center shoot - tall and slightly wavy -->
+                    <path d="M 70,70 Q 68,52 69,35 Q 70,20 70,5" opacity="0.95" stroke-width="3"/>
+                    <circle cx="70" cy="5" r="4" fill="#f4f1e8" opacity="0.9"/>
+
+                    <!-- Right shoot - curved differently than left -->
+                    <path d="M 70,70 Q 78,62 90,55 Q 102,50 112,48 Q 122,47 128,48" opacity="0.9"/>
+                    <circle cx="128" cy="48" r="4" fill="#f4f1e8" opacity="0.8"/>
+
+                    <!-- Leaf branch - coming off to the right side with clear separation -->
+                    <path d="M 70,45 Q 78,42 86,38" opacity="0.95" stroke-width="2.2"/>
+
+                    <!-- Simple upward-pointing leaf -->
+                    <path d="M 86,38 Q 90,36 94,30 Q 96,26 96,20 Q 96,14 94,10 Q 90,4 86,2 Q 82,4 78,10 Q 76,14 76,20 Q 76,26 78,30 Q 82,36 86,38"
+                          fill="#f4f1e8" opacity="0.95" stroke="#e8f5e3" stroke-width="1.5"/>
+                    <!-- Leaf center vein -->
+                    <path d="M 86,36 L 86,4" stroke="#e8f5e3" stroke-width="1.2" fill="none" opacity="0.9"/>
+                    <!-- Leaf side veins -->
+                    <path d="M 86,28 Q 82,24 80,20" stroke="#e8f5e3" stroke-width="0.8" opacity="0.7"/>
+                    <path d="M 86,28 Q 90,24 92,20" stroke="#e8f5e3" stroke-width="0.8" opacity="0.7"/>
+                    <path d="M 86,18 Q 83,16 80,14" stroke="#e8f5e3" stroke-width="0.8" opacity="0.7"/>
+                    <path d="M 86,18 Q 89,16 92,14" stroke="#e8f5e3" stroke-width="0.8" opacity="0.7"/>
+                </g>
+
+                <!-- Central trunk -->
+                <path d="M 70,70 Q 70,75 70,80" stroke="#f4f1e8" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+
+                <!-- Lower roots -->
+                <g stroke="#f4f1e8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Left root main -->
+                    <path d="M 70,80 Q 55,90 40,100 Q 30,108 20,116" opacity="0.9" stroke-width="2.8"/>
+                    <!-- Left root branches -->
+                    <path d="M 40,100 Q 30,104 20,106 Q 12,107 5,108" opacity="0.8"/>
+                    <path d="M 40,100 Q 35,108 28,116 Q 22,122 15,128" opacity="0.75"/>
+
+                    <!-- Center-left root main -->
+                    <path d="M 70,80 Q 65,95 60,110 Q 58,120 55,130" opacity="0.9"/>
+                    <!-- Center-left root branch -->
+                    <path d="M 60,110 Q 54,116 48,122 Q 44,126 40,130" opacity="0.7"/>
+
+                    <!-- Center root -->
+                    <path d="M 70,80 Q 70,100 70,120 Q 70,128 70,135" opacity="0.95" stroke-width="3"/>
+
+                    <!-- Center-right root main -->
+                    <path d="M 70,80 Q 75,95 80,110 Q 82,120 85,130" opacity="0.9"/>
+                    <!-- Center-right root branch -->
+                    <path d="M 80,110 Q 86,116 92,122 Q 96,126 100,130" opacity="0.7"/>
+
+                    <!-- Right root main -->
+                    <path d="M 70,80 Q 85,90 100,100 Q 110,108 120,116" opacity="0.9" stroke-width="2.8"/>
+                    <!-- Right root branches -->
+                    <path d="M 100,100 Q 110,104 120,106 Q 128,107 135,108" opacity="0.8"/>
+                    <path d="M 100,100 Q 105,108 112,116 Q 118,122 125,128" opacity="0.75"/>
+                </g>
+            </svg>
+            <h1>Rural Circuits</h1>
+        </div>
+        <p class="subtitle">Community Minded Homesteading Tools</p>
+        <p class="tagline">Connecting homesteaders, sensors, and intelligence to build resilient, community-minded systems that nourish the earth</p>
+    </div>
+
+    <div class="container">
+        <p class="vision">
+            A suite of tools for those who tend the land, share knowledge with neighbors, and seek harmony between technology and nature.
+        </p>
+
+        <div class="components">
+            <div class="component">
+                <div class="component-header">
+                    <div class="component-icon">
+                        <span class="icon">🌱</span>
+                    </div>
+                    <div class="component-title">
+                        <h2>Sage</h2>
+                    </div>
+                </div>
+                <div class="component-status">
+                    <span class="status active">Nourishing</span>
+                </div>
+                <div class="component-content">
+                    <p>A regenerative partner AI that lives on your own land—helping you nourish the earth and its inhabitants, building resilience and independence.</p>
+                    <ul>
+                        <li>Garden planning and harvest tracking</li>
+                        <li>Recipe guidance from your pantry and land</li>
+                        <li>Care support for chickens and farm animals</li>
+                        <li>Works offline, respects your privacy</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="component">
+                <div class="component-header">
+                    <div class="component-icon">
+                        <svg class="icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="myceliumBg">
+                                    <stop offset="0%" style="stop-color:#6b5b95;stop-opacity:0.9"/>
+                                    <stop offset="100%" style="stop-color:#4a3f6b;stop-opacity:0.8"/>
+                                </radialGradient>
+                            </defs>
+                            <circle cx="50" cy="50" r="48" fill="url(#myceliumBg)"/>
+
+                            <!-- Center dense cluster -->
+                            <g opacity="0.9">
+                                <circle cx="50" cy="50" r="3" fill="#e8d5f2"/>
+                                <circle cx="48" cy="52" r="2" fill="#d4b5e8"/>
+                                <circle cx="52" cy="51" r="2" fill="#c9a8dd"/>
+                            </g>
+
+                            <!-- Main radiating threads -->
+                            <g stroke="#e8d5f2" stroke-width="1.5" fill="none" opacity="0.85" stroke-linecap="round">
+                                <!-- Top branches -->
+                                <path d="M 50,50 Q 48,42 45,35 Q 44,32 42,28"/>
+                                <path d="M 50,50 Q 52,42 55,35 Q 56,32 58,28"/>
+                                <path d="M 50,50 Q 50,40 48,32 Q 47,28 45,24"/>
+
+                                <!-- Right branches -->
+                                <path d="M 50,50 Q 58,48 65,45 Q 68,44 72,42"/>
+                                <path d="M 50,50 Q 58,52 65,55 Q 68,56 72,58"/>
+
+                                <!-- Bottom branches -->
+                                <path d="M 50,50 Q 48,58 45,65 Q 44,68 42,72"/>
+                                <path d="M 50,50 Q 52,58 55,65 Q 56,68 58,72"/>
+
+                                <!-- Left branches -->
+                                <path d="M 50,50 Q 42,48 35,45 Q 32,44 28,42"/>
+                                <path d="M 50,50 Q 42,52 35,55 Q 32,56 28,58"/>
+                            </g>
+
+                            <!-- Secondary branches (pink tones) -->
+                            <g stroke="#d4b5e8" stroke-width="1.2" fill="none" opacity="0.7" stroke-linecap="round">
+                                <path d="M 45,35 Q 40,30 35,28"/>
+                                <path d="M 55,35 Q 60,30 65,28"/>
+                                <path d="M 65,45 Q 68,40 70,35"/>
+                                <path d="M 65,55 Q 68,60 70,65"/>
+                                <path d="M 45,65 Q 40,70 35,72"/>
+                                <path d="M 55,65 Q 60,70 65,72"/>
+                                <path d="M 35,45 Q 30,40 28,35"/>
+                                <path d="M 35,55 Q 30,60 28,65"/>
+                            </g>
+
+                            <!-- Fine tertiary threads -->
+                            <g stroke="#c9a8dd" stroke-width="0.8" fill="none" opacity="0.6" stroke-linecap="round">
+                                <path d="M 42,28 Q 38,22 35,18"/>
+                                <path d="M 58,28 Q 62,22 65,18"/>
+                                <path d="M 72,42 Q 76,38 80,35"/>
+                                <path d="M 72,58 Q 76,62 80,65"/>
+                                <path d="M 42,72 Q 38,78 35,82"/>
+                                <path d="M 58,72 Q 62,78 65,82"/>
+                                <path d="M 28,42 Q 24,38 20,35"/>
+                                <path d="M 28,58 Q 24,62 20,65"/>
+                            </g>
+
+                            <!-- Connection threads between branches -->
+                            <g stroke="#b899d1" stroke-width="0.6" fill="none" opacity="0.4" stroke-linecap="round">
+                                <path d="M 45,35 Q 50,35 55,35"/>
+                                <path d="M 65,45 Q 65,50 65,55"/>
+                                <path d="M 45,65 Q 50,65 55,65"/>
+                                <path d="M 35,45 Q 35,50 35,55"/>
+                            </g>
+
+                            <!-- Node points -->
+                            <g fill="#f0e6ff" opacity="0.8">
+                                <circle cx="45" cy="35" r="1.5"/>
+                                <circle cx="55" cy="35" r="1.5"/>
+                                <circle cx="65" cy="45" r="1.5"/>
+                                <circle cx="65" cy="55" r="1.5"/>
+                                <circle cx="45" cy="65" r="1.5"/>
+                                <circle cx="55" cy="65" r="1.5"/>
+                                <circle cx="35" cy="45" r="1.5"/>
+                                <circle cx="35" cy="55" r="1.5"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="component-title">
+                        <h2>Mycelium</h2>
+                    </div>
+                </div>
+                <div class="component-status">
+                    <span class="status coming">Taking Root</span>
+                </div>
+                <div class="component-content">
+                    <p>A living network that connects neighbors, sensors, and shared knowledge—like mycelium beneath the forest floor, quietly exchanging what's needed.</p>
+                    <ul>
+                        <li>Share observations and resources with your community</li>
+                        <li>Connect soil sensors, weather stations, resources</li>
+                        <li>Collective wisdom from the land</li>
+                        <li>Distributed, resilient, community-owned</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="component">
+                <div class="component-header">
+                    <div class="component-icon">
+                        <span class="icon">🪨</span>
+                    </div>
+                    <div class="component-title">
+                        <h2>Whisper Stones</h2>
+                    </div>
+                </div>
+                <div class="component-status">
+                    <span class="status coming">Germinating</span>
+                </div>
+                <div class="component-content">
+                    <p>Physical nodes you can build yourself—markers on the land that listen, sense, and share. Open hardware for open communities.</p>
+                    <ul>
+                        <li>Solar-powered sensing stations</li>
+                        <li>Simple to build, simple to repair</li>
+                        <li>Monitor soil, air, water, weather</li>
+                        <li>Open designs, local materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="diagram-section">
+            <h2>How It All Connects</h2>
+            <p>Mycelium forms the living network—a decentralized mesh connecting Sage assistants and Whisper Stone sensors across the land</p>
+
+            <div class="network-diagram">
+                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background network mesh -->
+                    <defs>
+                        <filter id="glow">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- WhisperNet mesh connections -->
+                    <g opacity="0.3" stroke="#b8d4a8" stroke-width="2" fill="none">
+                        <line x1="200" y1="150" x2="400" y2="100"/>
+                        <line x1="400" y1="100" x2="600" y2="150"/>
+                        <line x1="200" y1="150" x2="150" y2="300"/>
+                        <line x1="600" y1="150" x2="650" y2="300"/>
+                        <line x1="150" y1="300" x2="300" y2="400"/>
+                        <line x1="650" y1="300" x2="500" y2="400"/>
+                        <line x1="300" y1="400" x2="500" y2="400"/>
+                        <line x1="400" y1="100" x2="400" y2="250"/>
+                        <line x1="200" y1="150" x2="300" y2="400"/>
+                        <line x1="600" y1="150" x2="500" y2="400"/>
+                        <line x1="150" y1="300" x2="650" y2="300"/>
+                        <line x1="400" y1="250" x2="150" y2="300"/>
+                        <line x1="400" y1="250" x2="650" y2="300"/>
+                    </g>
+
+                    <!-- Sage nodes (AI assistants) -->
+                    <g>
+                        <!-- Sage 1 -->
+                        <circle cx="200" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                        <text x="200" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
+                        <text x="200" y="170" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Sage</text>
+
+                        <!-- Sage 2 -->
+                        <circle cx="600" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                        <text x="600" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
+                        <text x="600" y="170" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Sage</text>
+                    </g>
+
+                    <!-- Whisper Stones (hardware sensors) -->
+                    <g>
+                        <!-- Stone 1 -->
+                        <circle cx="150" cy="300" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <text x="150" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+
+                        <!-- Stone 2 -->
+                        <circle cx="650" cy="300" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <text x="650" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
+                        <text x="650" y="320" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+
+                        <!-- Stone 3 -->
+                        <circle cx="300" cy="400" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <text x="300" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
+                        <text x="300" y="420" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+
+                        <!-- Stone 4 -->
+                        <circle cx="500" cy="400" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <text x="500" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
+                        <text x="500" y="420" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+                    </g>
+
+                    <!-- Mycelium hub/center -->
+                    <g>
+                        <defs>
+                            <radialGradient id="myceliumDiagramBg">
+                                <stop offset="0%" style="stop-color:#6b5b95;stop-opacity:0.9"/>
+                                <stop offset="100%" style="stop-color:#4a3f6b;stop-opacity:0.8"/>
+                            </radialGradient>
+                        </defs>
+
+                        <!-- Outer circle with purple gradient -->
+                        <circle cx="400" cy="250" r="50" fill="url(#myceliumDiagramBg)" filter="url(#glow)"/>
+
+                        <!-- Center dense cluster -->
+                        <g opacity="0.9">
+                            <circle cx="400" cy="250" r="4" fill="#e8d5f2"/>
+                            <circle cx="397" cy="253" r="2.5" fill="#d4b5e8"/>
+                            <circle cx="403" cy="252" r="2.5" fill="#c9a8dd"/>
+                        </g>
+
+                        <!-- Main radiating threads -->
+                        <g stroke="#e8d5f2" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round">
+                            <!-- Top branches -->
+                            <path d="M 400,250 Q 398,238 393,227"/>
+                            <path d="M 400,250 Q 402,238 407,227"/>
+                            <path d="M 400,250 Q 400,235 397,222"/>
+
+                            <!-- Right branches -->
+                            <path d="M 400,250 Q 413,247 423,243"/>
+                            <path d="M 400,250 Q 413,253 423,257"/>
+
+                            <!-- Bottom branches -->
+                            <path d="M 400,250 Q 398,262 393,273"/>
+                            <path d="M 400,250 Q 402,262 407,273"/>
+
+                            <!-- Left branches -->
+                            <path d="M 400,250 Q 387,247 377,243"/>
+                            <path d="M 400,250 Q 387,253 377,257"/>
+                        </g>
+
+                        <!-- Secondary branches (pink tones) -->
+                        <g stroke="#d4b5e8" stroke-width="1.5" fill="none" opacity="0.7" stroke-linecap="round">
+                            <path d="M 393,227 Q 388,220 383,217"/>
+                            <path d="M 407,227 Q 412,220 417,217"/>
+                            <path d="M 423,243 Q 428,238 432,232"/>
+                            <path d="M 423,257 Q 428,262 432,268"/>
+                            <path d="M 393,273 Q 388,280 383,283"/>
+                            <path d="M 407,273 Q 412,280 417,283"/>
+                            <path d="M 377,243 Q 372,238 368,232"/>
+                            <path d="M 377,257 Q 372,262 368,268"/>
+                        </g>
+
+                        <!-- Connection threads -->
+                        <g stroke="#b899d1" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round">
+                            <path d="M 393,227 Q 400,227 407,227"/>
+                            <path d="M 423,243 Q 423,250 423,257"/>
+                            <path d="M 393,273 Q 400,273 407,273"/>
+                            <path d="M 377,243 Q 377,250 377,257"/>
+                        </g>
+
+                        <!-- Node points -->
+                        <g fill="#f0e6ff" opacity="0.8">
+                            <circle cx="393" cy="227" r="2"/>
+                            <circle cx="407" cy="227" r="2"/>
+                            <circle cx="423" cy="243" r="2"/>
+                            <circle cx="423" cy="257" r="2"/>
+                            <circle cx="393" cy="273" r="2"/>
+                            <circle cx="407" cy="273" r="2"/>
+                            <circle cx="377" cy="243" r="2"/>
+                            <circle cx="377" cy="257" r="2"/>
+                        </g>
+
+                        <text x="400" y="285" text-anchor="middle" font-size="13" fill="white" font-family="Arial" font-weight="bold">Mycelium</text>
+                    </g>
+
+                    <!-- Data flow labels -->
+                    <g font-family="Arial" font-size="11" fill="#5a6c51">
+                        <text x="250" y="50" text-anchor="middle" font-style="italic">Knowledge</text>
+                        <text x="550" y="50" text-anchor="middle" font-style="italic">Messaging</text>
+                        <text x="80" y="230" text-anchor="middle" font-style="italic">Sensors</text>
+                        <text x="720" y="230" text-anchor="middle" font-style="italic">Bartering</text>
+                        <text x="250" y="460" text-anchor="middle" font-style="italic">Weather</text>
+                        <text x="550" y="460" text-anchor="middle" font-style="italic">Soil Data</text>
+                    </g>
+                </svg>
+            </div>
+
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-icon legend-sage"></div>
+                    <span>Sage AI Assistants</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon legend-stone"></div>
+                    <span>Whisper Stone Sensors</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon legend-net"></div>
+                    <span>Mycelium Network</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="philosophy">
+            <h2>Our Roots</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: #5a6c51; font-size: 1.1em; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                Technology should serve the land and those who care for it, not extract from them. We build tools that strengthen community bonds, respect privacy, and work in harmony with natural systems.
+            </p>
+
+            <div class="philosophy-grid">
+                <div class="value">
+                    <div class="value-icon">🌾</div>
+                    <h3>Earth-Centered</h3>
+                    <p>Tools that help us listen to and nourish the land</p>
+                </div>
+
+                <div class="value">
+                    <div class="value-icon">🤝</div>
+                    <h3>Community-Owned</h3>
+                    <p>Open source, open hardware, shared knowledge</p>
+                </div>
+
+                <div class="value">
+                    <div class="value-icon">🌿</div>
+                    <h3>Resilient</h3>
+                    <p>Works offline, runs locally, built to last</p>
+                </div>
+
+                <div class="value">
+                    <div class="value-icon">☮️</div>
+                    <h3>Peaceful</h3>
+                    <p>Gentle technology that respects your time and attention</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Building in the open, growing at nature's pace</p>
+        <p class="footer-motto">Nourishing the earth, community minded, peaceful</p>
+    </footer>
+</body>
+</html>
