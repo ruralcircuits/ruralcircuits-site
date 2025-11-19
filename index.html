@@ -678,8 +678,7 @@
             <p>Sage runs right on your own computer—private, yours, not owned by tech companies burning fossil fuels in billion-dollar data centers. She helps you tend your garden, manage your pantry, and care for your homestead, offering daily guidance informed by sensors gathering real data from your land. Plant this today. Make that dish for dinner. Everything works on your own property, no outside internet needed—unless you want to connect with your rural neighbors through Mycelium to share knowledge, barter resources, and build community. All open source, all designed to serve the land and those who care for it.</p>
 
             <div class="network-diagram">
-                <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background network mesh -->
+                <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <filter id="glow">
                             <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -688,143 +687,108 @@
                                 <feMergeNode in="SourceGraphic"/>
                             </feMerge>
                         </filter>
+                        <radialGradient id="myceliumGradient">
+                            <stop offset="0%" style="stop-color:#6b5b95;stop-opacity:0.9"/>
+                            <stop offset="100%" style="stop-color:#4a3f6b;stop-opacity:0.8"/>
+                        </radialGradient>
                     </defs>
 
-                    <!-- WhisperNet mesh connections -->
-                    <g opacity="0.3" stroke="#b8d4a8" stroke-width="2" fill="none">
-                        <line x1="200" y1="150" x2="400" y2="100"/>
-                        <line x1="400" y1="100" x2="600" y2="150"/>
-                        <line x1="200" y1="150" x2="150" y2="300"/>
-                        <line x1="600" y1="150" x2="650" y2="300"/>
-                        <line x1="150" y1="300" x2="300" y2="400"/>
-                        <line x1="650" y1="300" x2="500" y2="400"/>
-                        <line x1="300" y1="400" x2="500" y2="400"/>
-                        <line x1="400" y1="100" x2="400" y2="250"/>
-                        <line x1="200" y1="150" x2="300" y2="400"/>
-                        <line x1="600" y1="150" x2="500" y2="400"/>
-                        <line x1="150" y1="300" x2="650" y2="300"/>
-                        <line x1="400" y1="250" x2="150" y2="300"/>
-                        <line x1="400" y1="250" x2="650" y2="300"/>
+                    <!-- Left Homestead Background -->
+                    <ellipse cx="200" cy="250" rx="150" ry="200" fill="#e8d5f2" opacity="0.15"/>
+
+                    <!-- Right Homestead Background -->
+                    <ellipse cx="700" cy="250" rx="150" ry="200" fill="#e8d5f2" opacity="0.15"/>
+
+                    <!-- Mycelium network - Local connections (more prominent) -->
+                    <!-- Left homestead local network -->
+                    <g stroke="#8b7bb8" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+                        <path d="M 200,150 Q 220,190 250,240" stroke-dasharray="5,3"/>
+                        <path d="M 250,240 Q 200,260 150,280" stroke-dasharray="5,3"/>
+                        <path d="M 250,240 Q 220,295 200,350" stroke-dasharray="5,3"/>
                     </g>
 
-                    <!-- Sage nodes (AI assistants) -->
-                    <g>
-                        <!-- Sage 1 -->
-                        <circle cx="200" cy="150" r="45" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
-                        <text x="200" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
-                        <text x="200" y="170" text-anchor="middle" font-size="16" fill="white" font-family="Arial">Sage</text>
-
-                        <!-- Sage 2 -->
-                        <circle cx="600" cy="150" r="45" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
-                        <text x="600" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
-                        <text x="600" y="170" text-anchor="middle" font-size="16" fill="white" font-family="Arial">Sage</text>
+                    <!-- Right homestead local network -->
+                    <g stroke="#8b7bb8" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+                        <path d="M 700,150 Q 680,190 650,240" stroke-dasharray="5,3"/>
+                        <path d="M 650,240 Q 700,260 750,280" stroke-dasharray="5,3"/>
+                        <path d="M 650,240 Q 680,295 700,350" stroke-dasharray="5,3"/>
                     </g>
 
-                    <!-- Whisper Stones (hardware sensors) -->
-                    <g>
-                        <!-- Stone 1 -->
-                        <circle cx="150" cy="300" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
-                        <text x="150" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="150" y="320" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
-
-                        <!-- Stone 2 -->
-                        <circle cx="650" cy="300" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
-                        <text x="650" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="650" y="320" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
-
-                        <!-- Stone 3 -->
-                        <circle cx="300" cy="400" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
-                        <text x="300" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="300" y="420" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
-
-                        <!-- Stone 4 -->
-                        <circle cx="500" cy="400" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
-                        <text x="500" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="500" y="420" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
+                    <!-- Gateway connection between homesteads (peer-to-peer) -->
+                    <g stroke="#9b8bb8" stroke-width="4" fill="none" opacity="0.8">
+                        <path d="M 280,240 Q 450,220 620,240" stroke-dasharray="8,4"/>
                     </g>
 
-                    <!-- Mycelium hub/center -->
-                    <g>
-                        <defs>
-                            <radialGradient id="myceliumDiagramBg">
-                                <stop offset="0%" style="stop-color:#6b5b95;stop-opacity:0.9"/>
-                                <stop offset="100%" style="stop-color:#4a3f6b;stop-opacity:0.8"/>
-                            </radialGradient>
-                        </defs>
+                    <!-- LEFT HOMESTEAD -->
+                    <!-- Sage 1 -->
+                    <circle cx="200" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                    <text x="200" y="145" text-anchor="middle" font-size="28" fill="white">🌱</text>
+                    <text x="200" y="168" text-anchor="middle" font-size="14" fill="white" font-family="Arial">Sage</text>
 
-                        <!-- Outer circle with purple gradient -->
-                        <circle cx="400" cy="250" r="45" fill="url(#myceliumDiagramBg)" filter="url(#glow)"/>
+                    <!-- Stones - Left homestead -->
+                    <circle cx="150" cy="280" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                    <text x="150" y="280" text-anchor="middle" font-size="24" fill="white">🪨</text>
+                    <text x="150" y="300" text-anchor="middle" font-size="13" fill="white" font-family="Arial">Stone</text>
 
-                        <!-- Center dense cluster -->
-                        <g opacity="0.9">
-                            <circle cx="400" cy="250" r="4" fill="#e8d5f2"/>
-                            <circle cx="397" cy="253" r="2.5" fill="#d4b5e8"/>
-                            <circle cx="403" cy="252" r="2.5" fill="#c9a8dd"/>
-                        </g>
+                    <circle cx="200" cy="350" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                    <text x="200" y="350" text-anchor="middle" font-size="24" fill="white">🪨</text>
+                    <text x="200" y="370" text-anchor="middle" font-size="13" fill="white" font-family="Arial">Stone</text>
 
-                        <!-- Main radiating threads -->
-                        <g stroke="#e8d5f2" stroke-width="2" fill="none" opacity="0.85" stroke-linecap="round">
-                            <!-- Top branches -->
-                            <path d="M 400,250 Q 398,238 393,227"/>
-                            <path d="M 400,250 Q 402,238 407,227"/>
-                            <path d="M 400,250 Q 400,235 397,222"/>
-
-                            <!-- Right branches -->
-                            <path d="M 400,250 Q 413,247 423,243"/>
-                            <path d="M 400,250 Q 413,253 423,257"/>
-
-                            <!-- Bottom branches -->
-                            <path d="M 400,250 Q 398,262 393,273"/>
-                            <path d="M 400,250 Q 402,262 407,273"/>
-
-                            <!-- Left branches -->
-                            <path d="M 400,250 Q 387,247 377,243"/>
-                            <path d="M 400,250 Q 387,253 377,257"/>
-                        </g>
-
-                        <!-- Secondary branches (pink tones) -->
-                        <g stroke="#d4b5e8" stroke-width="1.5" fill="none" opacity="0.7" stroke-linecap="round">
-                            <path d="M 393,227 Q 388,220 383,217"/>
-                            <path d="M 407,227 Q 412,220 417,217"/>
-                            <path d="M 423,243 Q 428,238 432,232"/>
-                            <path d="M 423,257 Q 428,262 432,268"/>
-                            <path d="M 393,273 Q 388,280 383,283"/>
-                            <path d="M 407,273 Q 412,280 417,283"/>
-                            <path d="M 377,243 Q 372,238 368,232"/>
-                            <path d="M 377,257 Q 372,262 368,268"/>
-                        </g>
-
-                        <!-- Connection threads -->
-                        <g stroke="#b899d1" stroke-width="1" fill="none" opacity="0.4" stroke-linecap="round">
-                            <path d="M 393,227 Q 400,227 407,227"/>
-                            <path d="M 423,243 Q 423,250 423,257"/>
-                            <path d="M 393,273 Q 400,273 407,273"/>
-                            <path d="M 377,243 Q 377,250 377,257"/>
-                        </g>
-
-                        <!-- Node points -->
-                        <g fill="#f0e6ff" opacity="0.8">
-                            <circle cx="393" cy="227" r="2"/>
-                            <circle cx="407" cy="227" r="2"/>
-                            <circle cx="423" cy="243" r="2"/>
-                            <circle cx="423" cy="257" r="2"/>
-                            <circle cx="393" cy="273" r="2"/>
-                            <circle cx="407" cy="273" r="2"/>
-                            <circle cx="377" cy="243" r="2"/>
-                            <circle cx="377" cy="257" r="2"/>
-                        </g>
-
-                        <text x="400" y="270" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Mycelium</text>
+                    <!-- Mycelium node - Left homestead -->
+                    <circle cx="250" cy="240" r="30" fill="url(#myceliumGradient)" filter="url(#glow)"/>
+                    <g opacity="0.9">
+                        <circle cx="250" cy="240" r="3" fill="#e8d5f2"/>
+                        <path d="M 250,240 L 245,235 M 250,240 L 255,235 M 250,240 L 245,245 M 250,240 L 255,245" stroke="#e8d5f2" stroke-width="1.5" opacity="0.8"/>
                     </g>
+                    <text x="250" y="255" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Local</text>
 
-                    <!-- Data flow labels -->
-                    <g font-family="Arial" font-size="15" fill="#5a6c51">
-                        <text x="250" y="50" text-anchor="middle" font-style="italic">Knowledge</text>
-                        <text x="550" y="50" text-anchor="middle" font-style="italic">Messaging</text>
-                        <text x="80" y="230" text-anchor="middle" font-style="italic">Sensors</text>
-                        <text x="720" y="230" text-anchor="middle" font-style="italic">Bartering</text>
-                        <text x="250" y="460" text-anchor="middle" font-style="italic">Weather</text>
-                        <text x="550" y="460" text-anchor="middle" font-style="italic">Soil Data</text>
+                    <!-- RIGHT HOMESTEAD -->
+                    <!-- Sage 2 -->
+                    <circle cx="700" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                    <text x="700" y="145" text-anchor="middle" font-size="28" fill="white">🌱</text>
+                    <text x="700" y="168" text-anchor="middle" font-size="14" fill="white" font-family="Arial">Sage</text>
+
+                    <!-- Stones - Right homestead -->
+                    <circle cx="750" cy="280" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                    <text x="750" y="280" text-anchor="middle" font-size="24" fill="white">🪨</text>
+                    <text x="750" y="300" text-anchor="middle" font-size="13" fill="white" font-family="Arial">Stone</text>
+
+                    <circle cx="700" cy="350" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                    <text x="700" y="350" text-anchor="middle" font-size="24" fill="white">🪨</text>
+                    <text x="700" y="370" text-anchor="middle" font-size="13" fill="white" font-family="Arial">Stone</text>
+
+                    <!-- Mycelium node - Right homestead -->
+                    <circle cx="650" cy="240" r="30" fill="url(#myceliumGradient)" filter="url(#glow)"/>
+                    <g opacity="0.9">
+                        <circle cx="650" cy="240" r="3" fill="#e8d5f2"/>
+                        <path d="M 650,240 L 645,235 M 650,240 L 655,235 M 650,240 L 645,245 M 650,240 L 655,245" stroke="#e8d5f2" stroke-width="1.5" opacity="0.8"/>
+                    </g>
+                    <text x="650" y="255" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Local</text>
+
+                    <!-- Gateway nodes -->
+                    <circle cx="330" cy="235" r="25" fill="url(#myceliumGradient)" opacity="0.9" filter="url(#glow)"/>
+                    <text x="330" y="240" text-anchor="middle" font-size="18" fill="white">⇄</text>
+
+                    <circle cx="570" cy="235" r="25" fill="url(#myceliumGradient)" opacity="0.9" filter="url(#glow)"/>
+                    <text x="570" y="240" text-anchor="middle" font-size="18" fill="white">⇄</text>
+
+                    <!-- Labels -->
+                    <g font-family="Arial" font-size="14" fill="#5a6c51">
+                        <text x="200" y="100" text-anchor="middle" font-weight="bold">The Red House</text>
+                        <text x="700" y="100" text-anchor="middle" font-weight="bold">Willow Creek Farm</text>
+
+                        <text x="450" y="195" text-anchor="middle" font-size="14" fill="#5a6c51" font-weight="bold">Gateway (P2P)</text>
+
+                        <text x="120" y="230" text-anchor="middle" font-size="12" font-style="italic">Soil Data</text>
+                        <text x="270" y="380" text-anchor="middle" font-size="12" font-style="italic">Weather</text>
+
+                        <text x="780" y="230" text-anchor="middle" font-size="12" font-style="italic">Moisture</text>
+                        <text x="630" y="380" text-anchor="middle" font-size="12" font-style="italic">Temperature</text>
+
+                        <text x="200" y="430" text-anchor="middle" font-size="13" fill="#4c6e42" font-style="italic">Private, local AI + sensors</text>
+                        <text x="700" y="430" text-anchor="middle" font-size="13" fill="#4c6e42" font-style="italic">Private, local AI + sensors</text>
+
+                        <text x="450" y="270" text-anchor="middle" font-size="13" fill="#6b5b95" font-style="italic">Share knowledge & resources</text>
                     </g>
                 </svg>
             </div>
@@ -832,15 +796,19 @@
             <div class="legend">
                 <div class="legend-item">
                     <div class="legend-icon legend-sage"></div>
-                    <span>Sage AI Assistants</span>
+                    <span>Sage - Your Private AI</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-icon legend-stone"></div>
-                    <span>Whisper Stone Sensors</span>
+                    <span>Sensors - Reading Your Land</span>
                 </div>
                 <div class="legend-item">
                     <div class="legend-icon legend-net"></div>
-                    <span>Mycelium Network</span>
+                    <span>Local Mycelium - Connects Your Devices</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon" style="background: #9b8bb8; width: 30px; height: 3px; border-radius: 0;"></div>
+                    <span>Gateway - P2P Between Homesteads</span>
                 </div>
             </div>
         </div>
