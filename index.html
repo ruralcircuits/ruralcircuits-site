@@ -105,15 +105,11 @@
 
         .component-header {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 15px;
             margin-bottom: 20px;
-        }
-
-        .components .component:first-child .component-header {
-            justify-content: flex-start;
-            padding-left: 40px;
         }
 
         .component-icon {
@@ -312,6 +308,89 @@
             color: #5a6c51;
             font-size: 0.95em;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        .contact {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 80px 0;
+            box-shadow: 0 8px 30px rgba(76, 110, 66, 0.1);
+        }
+
+        .contact h2 {
+            color: #4c6e42;
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 400;
+            text-align: center;
+        }
+
+        .contact p {
+            text-align: center;
+            color: #5a6c51;
+            margin-bottom: 40px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1.1em;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #4c6e42;
+            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #d4e8ce;
+            border-radius: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1em;
+            color: #2c3e25;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #7a9d6e;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            background: #7a9d6e;
+            color: white;
+            padding: 14px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .submit-btn:hover {
+            background: #6b8d5f;
+            transform: translateY(-2px);
         }
 
         footer {
@@ -631,37 +710,37 @@
                     <!-- Sage nodes (AI assistants) -->
                     <g>
                         <!-- Sage 1 -->
-                        <circle cx="200" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="200" cy="150" r="45" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
                         <text x="200" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
-                        <text x="200" y="170" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Sage</text>
+                        <text x="200" y="170" text-anchor="middle" font-size="16" fill="white" font-family="Arial">Sage</text>
 
                         <!-- Sage 2 -->
-                        <circle cx="600" cy="150" r="40" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="600" cy="150" r="45" fill="#7bc96f" opacity="0.9" filter="url(#glow)"/>
                         <text x="600" y="145" text-anchor="middle" font-size="30" fill="white">🌱</text>
-                        <text x="600" y="170" text-anchor="middle" font-size="12" fill="white" font-family="Arial">Sage</text>
+                        <text x="600" y="170" text-anchor="middle" font-size="16" fill="white" font-family="Arial">Sage</text>
                     </g>
 
                     <!-- Whisper Stones (hardware sensors) -->
                     <g>
                         <!-- Stone 1 -->
-                        <circle cx="150" cy="300" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="150" cy="300" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
                         <text x="150" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="150" y="320" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+                        <text x="150" y="320" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
 
                         <!-- Stone 2 -->
-                        <circle cx="650" cy="300" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="650" cy="300" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
                         <text x="650" y="300" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="650" y="320" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+                        <text x="650" y="320" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
 
                         <!-- Stone 3 -->
-                        <circle cx="300" cy="400" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="300" cy="400" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
                         <text x="300" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="300" y="420" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+                        <text x="300" y="420" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
 
                         <!-- Stone 4 -->
-                        <circle cx="500" cy="400" r="35" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
+                        <circle cx="500" cy="400" r="45" fill="#9b8579" opacity="0.9" filter="url(#glow)"/>
                         <text x="500" y="400" text-anchor="middle" font-size="28" fill="white">🪨</text>
-                        <text x="500" y="420" text-anchor="middle" font-size="11" fill="white" font-family="Arial">Stone</text>
+                        <text x="500" y="420" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Stone</text>
                     </g>
 
                     <!-- Mycelium hub/center -->
@@ -674,7 +753,7 @@
                         </defs>
 
                         <!-- Outer circle with purple gradient -->
-                        <circle cx="400" cy="250" r="50" fill="url(#myceliumDiagramBg)" filter="url(#glow)"/>
+                        <circle cx="400" cy="250" r="45" fill="url(#myceliumDiagramBg)" filter="url(#glow)"/>
 
                         <!-- Center dense cluster -->
                         <g opacity="0.9">
@@ -735,11 +814,11 @@
                             <circle cx="377" cy="257" r="2"/>
                         </g>
 
-                        <text x="400" y="285" text-anchor="middle" font-size="13" fill="white" font-family="Arial" font-weight="bold">Mycelium</text>
+                        <text x="400" y="270" text-anchor="middle" font-size="15" fill="white" font-family="Arial">Mycelium</text>
                     </g>
 
                     <!-- Data flow labels -->
-                    <g font-family="Arial" font-size="11" fill="#5a6c51">
+                    <g font-family="Arial" font-size="15" fill="#5a6c51">
                         <text x="250" y="50" text-anchor="middle" font-style="italic">Knowledge</text>
                         <text x="550" y="50" text-anchor="middle" font-style="italic">Messaging</text>
                         <text x="80" y="230" text-anchor="middle" font-style="italic">Sensors</text>
@@ -797,6 +876,34 @@
                     <p>Gentle technology that respects your time and attention</p>
                 </div>
             </div>
+        </div>
+
+        <div class="contact">
+            <h2>Get in Touch</h2>
+            <p>Interested in learning more or want to join the conversation? We'd love to hear from you.</p>
+
+            <form class="contact-form" action="https://formsubmit.co/contact@ruralcircuits.earth" method="POST">
+                <input type="hidden" name="_subject" value="New inquiry from Rural Circuits website">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="text" name="_honey" style="display:none">
+
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
     </div>
 
