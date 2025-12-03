@@ -429,3 +429,57 @@ body {
   font-size: 0.9rem;
   color: var(--muted);
 }
+
+/* Mobile Responsive */
+
+@media (max-width: 768px) {
+  /* Header */
+  .header-inner {
+    flex-direction: column;
+    gap: 0.8rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .site-title {
+    font-size: 1.4rem;
+  }
+
+  .site-tagline {
+    font-size: 0.9rem;
+  }
+
+  .site-nav {
+    font-size: 0.95rem;
+    gap: 0.8rem;
+  }
+
+  /* Hero */
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .hero-body {
+    font-size: 0.95rem;
+  }
+
+  /* Values grid */
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Cards grid */
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Two column layout */
+  .layout-two-column {
+    grid-template-columns: 1fr;
+  }
+}
