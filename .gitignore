@@ -1,0 +1,17 @@
+# Drafts and content creation
+*.md
+drafts/
+
+# Tooling
+new-note.sh
+new-note.js
+package.json
+package-lock.json
+node_modules/
+
+# macOS
+.DS_Store
+
+# Editor
+.vscode/
+.idea/
