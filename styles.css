@@ -47,6 +47,14 @@ body {
   background: var(--bg-alt);
 }
 
+.section .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+}
+
 .section h2 {
   font-size: 1.9rem;
   margin-top: 0;
@@ -388,7 +396,121 @@ body {
   text-decoration: underline;
 }
 
-/* Field Notes layout (for blog pages) */
+/* Field Notes Grid (Homepage) */
+
+.field-notes-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.field-note-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+}
+
+.field-note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+.field-note-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.field-note-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.field-note-content {
+  padding: 1.5rem;
+}
+
+.field-note-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.3rem;
+  color: var(--text);
+}
+
+.field-note-date {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.field-note-excerpt {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+
+.field-note-read-more {
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.field-note-link:hover .field-note-read-more {
+  text-decoration: underline;
+}
+
+/* Pinned field note (basic message) */
+.field-note-pinned {
+  width: 100%;
+}
+
+.field-note-pinned .field-note-link {
+  cursor: default;
+}
+
+.field-note-pinned:hover {
+  transform: none;
+  box-shadow: var(--shadow-soft);
+}
+
+.field-note-pinned .values-grid {
+  margin-top: 1.5rem;
+}
+
+.field-note-pinned .value-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.mission-values {
+  list-style: circle;
+  padding-left: 1.5rem;
+  margin: 1.5rem 0 0;
+  color: var(--accent);
+  line-height: 1.8;
+}
+
+.mission-values li {
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.pinned-actions {
+  margin-top: 1.5rem;
+}
+
+
+/* Field Notes layout (for individual blog pages) */
 
 .field-notes-header {
   margin-bottom: 2rem;
@@ -480,6 +602,11 @@ body {
 
   /* Two column layout */
   .layout-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  /* Pinned field note values */
+  .field-note-pinned .values-grid {
     grid-template-columns: 1fr;
   }
 }
