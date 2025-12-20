@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rural Circuits</title>
+    <link>https://ruralcircuits.earth</link>
+    <description>Ideas for a better life on earth. Field notes on regenerative living, homesteading, and gentle technology.</description>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 20 Dec 2025 00:17:13 GMT</lastBuildDate>
+    <atom:link href="https://ruralcircuits.earth/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Sourdough Adventures</title>
+      <link>https://ruralcircuits.earth/field-notes/2025-12-08-sourdough-adventures.html</link>
+      <guid>https://ruralcircuits.earth/field-notes/2025-12-08-sourdough-adventures.html</guid>
+      <pubDate>Mon, 08 Dec 2025 00:00:00 GMT</pubDate>
+      <description>Baking with sourdough creates delicious, healthy breads that can delight anyone who tries them.</description>
+    </item>
+    <item>
+      <title>Nature is amazing!</title>
+      <link>https://ruralcircuits.earth/field-notes/2025-12-04-nature-is-amazing.html</link>
+      <guid>https://ruralcircuits.earth/field-notes/2025-12-04-nature-is-amazing.html</guid>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 GMT</pubDate>
+      <description>I am overwhelmed with gratitude for the resilience of nature and the quiet wisdom of Mother Earth. She always knows what to do. When we trust that we belong to this place — to this living world — we find that we are held, supported, and guided.</description>
+    </item>
+    <item>
+      <title>Introducing Rootstock</title>
+      <link>https://ruralcircuits.earth/field-notes/2025-12-01-introducing-rootstock.html</link>
+      <guid>https://ruralcircuits.earth/field-notes/2025-12-01-introducing-rootstock.html</guid>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 GMT</pubDate>
+      <description>Rootstock is a toolkit for regenerative homesteading—combining local AI, peer-to-peer networking, and open-source sensors.</description>
+    </item>
+  </channel>
+</rss>
